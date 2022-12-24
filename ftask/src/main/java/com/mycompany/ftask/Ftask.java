@@ -1,15 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
 
 package com.mycompany.ftask;
-
 import javax.swing.JFrame;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import javax.imageio.ImageIO;
 
-/**
- *
- * @author sohip
- */
 public class Ftask {
 
     public static void main(String[] args) {
@@ -23,7 +19,20 @@ public class Ftask {
         // insert mypanel in fram
         myfram.setContentPane(ob);
         myfram.setVisible(true);
-       
         myfram.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+
+
+        try
+        {
+            BufferedImage image = new BufferedImage(500, 500, BufferedImage.TYPE_INT_RGB);
+            Graphics2D graphics2D = image.createGraphics();
+            myfram.paint(graphics2D);
+            ImageIO.write(image,"jpeg", new File("jmemPractice.jpeg"));
+        }
+        catch(Exception exception)
+        {
+            //code
+        }
     }
 }
